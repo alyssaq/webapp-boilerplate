@@ -20,8 +20,8 @@ var gulp = require('gulp'),
   CFG = {src: 'src/', prod: 'app/'};
 
 function handleError(err) {
-  notify({ message: 'ERROR' + err.toString() })
-  console.error("ERROR:" + err.toString());
+  notify.onError('<%= err.message %>')()
+  console.error("ERROR: " + err.toString());
   this.emit('end');
 }
 
@@ -43,7 +43,8 @@ gulp.task('styles', function() {
     size(),
     connect.reload(),
     gulp.dest(CFG.prod + 'styles')
-  ).on('error', handleError);
+  ).on('error', handleError)
+   .on('error', notify.onError('<%= error.message %>'));
 });
 
 // Scripts
@@ -67,7 +68,7 @@ gulp.task('html', function () {
     connect.reload(),
     size(),
     gulp.dest(CFG.prod)
-  ).on('error', handleError); 
+  ).on('error', handleError);
 });
 
 // Images
@@ -82,7 +83,7 @@ gulp.task('images', function () {
     connect.reload(),
     size(),
     gulp.dest(CFG.prod + 'images')
-  ).on('error', handleError); 
+  ).on('error', handleError);
 });
 
 // Replace html tags during build
@@ -94,7 +95,7 @@ gulp.task('replace', function() {
         'js': 'scripts/main.min.js'
     }),
     gulp.dest(CFG.prod)
-  ).on('error', handleError);  
+  ).on('error', handleError); 
 });
 
 // Clean
@@ -106,7 +107,7 @@ gulp.task('clean', function () {
               '.sass-cache'], 
             {read: false}),
     clean()
-  ).on('error', handleError); 
+  ).on('error', handleError);
 });
 
 gulp.task('connect', connect.server({
