@@ -2,6 +2,10 @@
   "name": "web-app",
   "version": "0.0.1",
   "description": "HTML5 Boilerplate skeleton with gulpjs",
+  "repository" : {
+    "type" : "git",
+    "url" : "git@github.com:alyssaq/webapp-boilerplate.git"
+  },
   "homepage": "https://github.com/alyssaq/webapp-boilerplate",
   "author": "Alyssa Quek",
   "dependencies": {
