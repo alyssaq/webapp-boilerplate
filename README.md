@@ -22,7 +22,7 @@ To build and stay connected with live-reload for development (files served from 
 
 Run
 ==
-Start a simple HTTP server and view the blog
+Start a simple HTTP server and view the site
 
 #### Node (requires http-server module): 
 
@@ -34,7 +34,7 @@ Start a simple HTTP server and view the blog
     $ cd app
     $ python -m SimpleHTTPServer 9999
 
-Open and view the blog at `localhost:9999`
+Open and view the site at `localhost:9999`
 
 Contribute
 ==
